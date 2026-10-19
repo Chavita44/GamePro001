@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chavita Clicker - Ninja Idle</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Oswald:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- HEADER -->
+    <header>
+        <div class="logo-container">
+            <img src="logo-cube.png" alt="Cubo" class="header-icon">
+            <img src="logo-text.png" alt="Chavita" class="header-text-img">
+        </div>
+        <div class="stats-container">
+            <div class="stat-box">
+                <span class="stat-label">Monedas de Oro</span>
+                <span class="stat-value" id="ui-monedas">0</span>
+            </div>
+            <div class="stat-box">
+                <span class="stat-label">Oro / Seg</span>
+                <span class="stat-value" id="ui-mps">0</span>
+            </div>
+            <div class="stat-box souls-box">
+                <span class="stat-label">Almas Astrales</span>
+                <span class="stat-value" id="ui-almas">0</span>
+            </div>
+        </div>
+    </header>
+
+    <!-- CONTENEDOR PRINCIPAL -->
+    <main>
+        <!-- SECCIÓN IZQUIERDA: CLICK Y ANUNCIOS -->
+        <section class="left-panel">
+            <div class="click-area">
+                <div class="click-text-container" id="click-text-container"></div>
+                <button id="click-button" class="ninja-button">
+                    <img src="logo-shield.png" alt="Escudo Ninja" class="shield-img">
+                </button>
+                <div class="click-info">
+                    Oro por clic: <span id="ui-monedas-clic">1</span>
+                </div>
+            </div>
+
+            <div class="ads-panel">
+                <h3>Recompensas Ninja</h3>
+                <div class="ad-buttons">
+                    <button class="ad-btn" id="btn-ad-oro">
+                        <span class="icon">📺</span> x2 Oro (1h)
+                        <span class="timer" id="timer-oro"></span>
+                    </button>
+                    <button class="ad-btn" id="btn-ad-clic">
+                        <span class="icon">📺</span> x2 Clic (30m)
+                        <span class="timer" id="timer-clic"></span>
+                    </button>
+                    <button class="ad-btn" id="btn-ad-almas">
+                        <span class="icon">📺</span> x2 Almas (Prestigio)
+                        <span class="timer" id="timer-almas"></span>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECCIÓN DERECHA: TIENDA Y PRESTIGIO -->
+        <section class="right-panel">
+            <div class="shop-panel">
+                <h2>Entrenamiento</h2>
+                <div id="shop-list" class="shop-list">
+                    <!-- Generado dinámicamente por JS -->
+                </div>
+            </div>
+
+            <div class="prestige-panel">
+                <h2>Reinicio Celestial</h2>
+                <p>Gana <strong id="ui-prestige-almas">0</strong> Almas Astrales.</p>
+                <p class="small-text">Cada Alma otorga +5% de producción global permanente.</p>
+                <button id="btn-prestige" class="prestige-btn">PRESTIGIO</button>
+            </div>
+        </section>
+    </main>
+
+    <!-- MODAL DE ANUNCIOS -->
+    <div id="ad-modal" class="modal hidden">
+        <div class="modal-content ad-content">
+            <h2>Reproduciendo Anuncio Ninja</h2>
+            <div class="ad-screen">
+                <span id="ad-countdown">5</span>
+            </div>
+            <p>Por favor, espera para reclamar tu recompensa...</p>
+        </div>
+    </div>
+
+    <!-- MODAL DE GANANCIAS OFFLINE -->
+    <div id="offline-modal" class="modal hidden">
+        <div class="modal-content offline-content">
+            <h2>¡Misión de Reconocimiento!</h2>
+            <p>Mientras estabas fuera, tus ninjas recolectaron:</p>
+            <div class="offline-reward" id="offline-amount">0</div>
+            <p>Monedas de Oro.</p>
+            <button id="btn-claim-offline" class="ad-btn">x2 Ver Anuncio</button>
+            <button id="btn-claim-normal" class="normal-btn">Reclamar Normal</button>
+        </div>
+    </div>
+
+    <script src="game.js"></script>
+</body>
+</html>
